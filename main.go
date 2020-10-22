@@ -102,19 +102,16 @@ func generateReport(collection *repository.MongoDBCollection) {
 
 func main() {
 	startTime := time.Now()
-
 	log.Println("Starting process.")
 
 	loadEnv()
 
 	collection := repository.GetCollection("fiis")
-
 	tickers := loadFundsList()
 
 	log.Println(tickers)
 
 	scraper.Scrape(tickers, &collection)
-
 	generateReport(&collection)
 
 	log.Println("Process finished in", time.Now().Sub(startTime))
