@@ -73,8 +73,8 @@ func aggregateCollection(collection *repository.MongoDBCollection) []bson.M {
 }
 
 func getDateStringBR(date time.Time) string {
-	return fmt.Sprintf("%d/%02d/%02d",
-		date.Year(), date.Month(), date.Day())
+	return fmt.Sprintf("%02d/%02d/%d",
+		date.Day(), date.Month(), date.Year())
 }
 
 func generateReport(collection *repository.MongoDBCollection) {
