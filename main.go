@@ -78,7 +78,7 @@ func getDateStringBR(date time.Time) string {
 }
 
 func generateReport(collection *repository.MongoDBCollection) {
-	reportFile := csv.GetCSV("./output/", "a")
+	reportFile := csv.GetCSV("./output/", os.Getenv("REPORT_FILENAME"))
 	reportFile.Add([]string{"Ticker", "Link", "Preço", "Dividendo", "Dividend Yield", "P/VP", "Data"})
 
 	results := aggregateCollection(collection)
